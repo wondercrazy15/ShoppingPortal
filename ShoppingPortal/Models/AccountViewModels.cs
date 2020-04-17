@@ -48,12 +48,12 @@ namespace ShoppingPortal.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage ="Enter email address")]
         [Display(Name = "Email")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage ="Invalid email address")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Enter password")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -83,12 +83,12 @@ namespace ShoppingPortal.Models
 
     public class ResetPasswordViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage ="Enter email")]
+        [EmailAddress(ErrorMessage ="Invalid email address")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Enter password")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
@@ -104,8 +104,8 @@ namespace ShoppingPortal.Models
 
     public class ForgotPasswordViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage ="Enter Email")]
+        [EmailAddress(ErrorMessage ="Invalid email address")]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }

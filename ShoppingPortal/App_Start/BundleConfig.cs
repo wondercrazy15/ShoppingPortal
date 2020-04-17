@@ -30,29 +30,30 @@ namespace ShoppingPortal
 
             bundles.Add(new StyleBundle("~/Content/TemplateCSS").Include(
                       "~/Content/TemplateCSS/bootstrap.min.css",
-                      "~/Content/TemplateCSS/font-awesome.min.css",
+                      "~/Content/TemplateCSS/font-awesome.css",
                       "~/Content/TemplateCSS/nprogress.css",
                       "~/Content/TemplateCSS/bootstrap-progressbar-3.3.4.min.css",
                       "~/Content/TemplateCSS/daterangepicker.css",
-                      "~/Content/TemplateCSS/custom.min.css"));
+                      "~/Content/TemplateCSS/custom.css",
+                      "~/Content/TemplateCSS/common.css"));
             
 
             bundles.Add(new ScriptBundle("~/bundles/Templatejquery").Include(
-                        "~/Scripts/TemplateScript/jquery.min.js",
-                        "~/Scripts/TemplateScript/bootstrap.bundle.minjquery.min.js",
+                        "~/Scripts/TemplateScript/bootstrap.bundle.js",
                         "~/Scripts/TemplateScript/fastclick.js",
                         "~/Scripts/TemplateScript/nprogress.js",
-                        "~/Scripts/TemplateScript/Chart.min.js",
-                        "~/Scripts/TemplateScript/jquery.sparkline.min.js",
-                        "~/Scripts/TemplateScript/morris.min.js",
-                        "~/Scripts/TemplateScript/gauge.min.js",
-                        "~/Scripts/TemplateScript/bootstrap-progressbar.min.js",
-                        "~/Scripts/TemplateScript/skycons.js",
-                        "~/Scripts/TemplateScript/jquery.flot.js",
-                        "~/Scripts/TemplateScript/jquery.flot.pie.js",
-                        "~/Scripts/TemplateScript/jquery.flot.time.js",
-                        "~/Scripts/TemplateScript/jquery.flot.stack.js",
-                        "~/Scripts/TemplateScript/jquery.flot.resize.js"                                            
+                        "~/Scripts/TemplateScript/custom.js"
+                        //"~/Scripts/TemplateScript/Chart.min.js",
+                        //"~/Scripts/TemplateScript/jquery.sparkline.min.js",
+                        //"~/Scripts/TemplateScript/morris.min.js",
+                        //"~/Scripts/TemplateScript/gauge.min.js",
+                        //"~/Scripts/TemplateScript/bootstrap-progressbar.min.js",
+                        //"~/Scripts/TemplateScript/skycons.js",
+                        //"~/Scripts/TemplateScript/jquery.flot.js",
+                        //"~/Scripts/TemplateScript/jquery.flot.pie.js",
+                        //"~/Scripts/TemplateScript/jquery.flot.time.js",
+                        //"~/Scripts/TemplateScript/jquery.flot.stack.js",
+                        //"~/Scripts/TemplateScript/jquery.flot.resize.js"                                            
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/Templatebootstrap").Include(
