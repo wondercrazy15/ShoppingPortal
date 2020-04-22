@@ -45,10 +45,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -101,6 +111,15 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.1\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.1\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mvc5, Version=1.4.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc5.1.4.0\lib\net45\Unity.Mvc5.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -165,11 +184,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="AutoMapper\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -187,11 +209,17 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\TemplateCSS\bootstrap-progressbar-3.3.4.min.css" />
     <Content Include="Content\TemplateCSS\bootstrap.min.css" />
+    <Content Include="Content\TemplateCSS\buttons.bootstrap.min.css" />
     <Content Include="Content\TemplateCSS\common.css" />
     <Content Include="Content\TemplateCSS\custom.css" />
+    <Content Include="Content\TemplateCSS\dataTables.bootstrap.min.css" />
     <Content Include="Content\TemplateCSS\daterangepicker.css" />
+    <Content Include="Content\TemplateCSS\fixedHeader.bootstrap.min.css" />
     <Content Include="Content\TemplateCSS\font-awesome.css" />
     <Content Include="Content\TemplateCSS\nprogress.css" />
+    <Content Include="Content\TemplateCSS\responsive.bootstrap.min.css" />
+    <Content Include="Content\TemplateCSS\scroller.bootstrap.min.css" />
+    <Content Include="Content\TemplateCSS\sweetalert.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -231,10 +259,22 @@
     <Content Include="Scripts\TemplateScript\bootstrap-progressbar.min.js" />
     <Content Include="Scripts\TemplateScript\bootstrap.bundle.js" />
     <Content Include="Scripts\TemplateScript\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\TemplateScript\buttons.bootstrap.min.js" />
+    <Content Include="Scripts\TemplateScript\buttons.flash.min.js" />
+    <Content Include="Scripts\TemplateScript\buttons.html5.min.js" />
+    <Content Include="Scripts\TemplateScript\buttons.print.min.js" />
     <Content Include="Scripts\TemplateScript\Chart.min.js" />
+    <Content Include="Scripts\TemplateScript\common.js" />
     <Content Include="Scripts\TemplateScript\custom.js" />
+    <Content Include="Scripts\TemplateScript\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\TemplateScript\dataTables.buttons.min.js" />
+    <Content Include="Scripts\TemplateScript\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\TemplateScript\dataTables.keyTable.min.js" />
+    <Content Include="Scripts\TemplateScript\dataTables.responsive.min.js" />
+    <Content Include="Scripts\TemplateScript\dataTables.scroller.min.js" />
     <Content Include="Scripts\TemplateScript\fastclick.js" />
     <Content Include="Scripts\TemplateScript\gauge.min.js" />
+    <Content Include="Scripts\TemplateScript\jquery.dataTables.min.js" />
     <Content Include="Scripts\TemplateScript\jquery.flot.js" />
     <Content Include="Scripts\TemplateScript\jquery.flot.pie.js" />
     <Content Include="Scripts\TemplateScript\jquery.flot.resize.js" />
@@ -242,10 +282,15 @@
     <Content Include="Scripts\TemplateScript\jquery.flot.time.js" />
     <Content Include="Scripts\TemplateScript\jquery.min.js" />
     <Content Include="Scripts\TemplateScript\jquery.sparkline.min.js" />
+    <Content Include="Scripts\TemplateScript\jszip.min.js" />
     <Content Include="Scripts\TemplateScript\morris.min.js" />
     <Content Include="Scripts\TemplateScript\nprogress.js" />
+    <Content Include="Scripts\TemplateScript\pdfmake.min.js" />
     <Content Include="Scripts\TemplateScript\raphael.min.js" />
+    <Content Include="Scripts\TemplateScript\responsive.bootstrap.js" />
     <Content Include="Scripts\TemplateScript\skycons.js" />
+    <Content Include="Scripts\TemplateScript\sweetalert.min.js" />
+    <Content Include="Scripts\TemplateScript\vfs_fonts.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -283,6 +328,7 @@
     <Content Include="Views\Shared\_CustomLayout.cshtml" />
     <Content Include="Views\Shared\_CommonLayout.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -299,6 +345,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{2cd05b52-c011-4ebb-85f2-36a36e0cfac4}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{80366f2f-d5f9-46c1-882d-6c2e721f55e3}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{467b9952-2d46-4502-92c2-499994e141a7}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

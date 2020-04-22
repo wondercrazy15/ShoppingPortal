@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Owin;
 using Owin;
+using ShoppingPortal.App_Start;
 using ShoppingPortal.Models;
 
 [assembly: OwinStartupAttribute(typeof(ShoppingPortal.Startup))]
@@ -13,6 +15,7 @@ namespace ShoppingPortal
         {
             ConfigureAuth(app);
             CreateDefaultUser();
+           
         }
         private void CreateDefaultUser() {
             try
@@ -50,5 +53,21 @@ namespace ShoppingPortal
           
         }
 
+        //public void ConfigureServices(IServiceCollection services)
+        //{
+        //    // .... Ignore code before this
+
+        //    // Auto Mapper Configurations
+        //    var mappingConfig = new MapperConfiguration(mc =>
+        //    {
+        //        mc.AddProfile(new MappingProfile());
+        //    });
+
+        //    IMapper mapper = mappingConfig.CreateMapper();
+        //    services.AddSingleton(mapper);
+
+        //   // services.AddMvc();
+
+        //}
     }
 }

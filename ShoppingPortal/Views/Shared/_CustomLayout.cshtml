@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
+    <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    @Scripts.Render("~/Content/DatatableCSS")
     @Styles.Render("~/Content/TemplateCSS")
+
 </head>
 
 <body class="nav-md">
@@ -39,7 +42,22 @@
                                 <li>
                                     <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="index.html">Dashboard</a></li>
+                                        <li>
+
+                                            @Html.ActionLink("Dashboard", "Dashboard", "Home")
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>
+                                        <i class="fa fa-edit"></i>Customer
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li>@Html.ActionLink("Customer", "Index", "User")</li>
+                                        <li>
+                                        <li>@Html.ActionLink("User", "Index", "User")</li>
+
                                     </ul>
                                 </li>
 
@@ -63,7 +81,7 @@
                         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                         {
                             @Html.AntiForgeryToken()
-                            
+
                             <a data-toggle="tooltip" data-placement="top" title="Logout" href="javascript:document.getElementById('logoutForm').submit()">
                                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                             </a>
@@ -132,6 +150,7 @@
 
     <script src="~/Scripts/TemplateScript/jquery.min.js"></script>
     @Scripts.Render("~/bundles/Templatejquery")
+    @Scripts.Render("~/bundles/Datatable")
     @RenderSection("scripts", required: false)
 </body>
 </html>

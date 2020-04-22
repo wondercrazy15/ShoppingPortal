@@ -34,15 +34,28 @@ namespace ShoppingPortal
                       "~/Content/TemplateCSS/nprogress.css",
                       "~/Content/TemplateCSS/bootstrap-progressbar-3.3.4.min.css",
                       "~/Content/TemplateCSS/daterangepicker.css",
+                       "~/Content/TemplateCSS/sweetalert.min.css",
                       "~/Content/TemplateCSS/custom.css",
                       "~/Content/TemplateCSS/common.css"));
-            
+
+            bundles.Add(new StyleBundle("~/Content/DatatableCSS").Include(
+                   
+                     "~/Content/TemplateCSS/dataTables.bootstrap.min.css",
+                     "~/Content/TemplateCSS/buttons.bootstrap.min.css",
+                     "~/Content/TemplateCSS/fixedHeader.bootstrap.min.css",
+                     "~/Content/TemplateCSS/responsive.bootstrap.min.css",
+                     "~/Content/TemplateCSS/scroller.bootstrap.min.css"
+                   ));
+
+
 
             bundles.Add(new ScriptBundle("~/bundles/Templatejquery").Include(
                         "~/Scripts/TemplateScript/bootstrap.bundle.js",
                         "~/Scripts/TemplateScript/fastclick.js",
                         "~/Scripts/TemplateScript/nprogress.js",
-                        "~/Scripts/TemplateScript/custom.js"
+                         "~/Scripts/TemplateScript/sweetalert.min.js",
+                         "~/Scripts/TemplateScript/custom.js",
+                            "~/Scripts/TemplateScript/common.js"
                         //"~/Scripts/TemplateScript/Chart.min.js",
                         //"~/Scripts/TemplateScript/jquery.sparkline.min.js",
                         //"~/Scripts/TemplateScript/morris.min.js",
@@ -58,6 +71,26 @@ namespace ShoppingPortal
 
             bundles.Add(new ScriptBundle("~/bundles/Templatebootstrap").Include(
                       "~/Scripts/bootstrap.js"));
+
+
+            bundles.Add(new ScriptBundle("~/bundles/Datatable").Include(
+                         "~/Scripts/TemplateScript/jquery.dataTables.min.js",
+                         "~/Scripts/TemplateScript/dataTables.bootstrap.min.js",
+                            "~/Scripts/TemplateScript/dataTables.buttons.min.js",
+                            "~/Scripts/TemplateScript/buttons.bootstrap.min.js",
+                            "~/Scripts/TemplateScript/buttons.flash.min.js",
+                            "~/Scripts/TemplateScript/buttons.html5.min.js",
+                            "~/Scripts/TemplateScript/buttons.print.min.js",
+                            "~/Scripts/TemplateScript/dataTables.fixedHeader.min.js",
+                            "~/Scripts/TemplateScript/dataTables.keyTable.min.js",
+                            "~/Scripts/TemplateScript/dataTables.responsive.min.js",
+                            "~/Scripts/TemplateScript/responsive.bootstrap.js",
+                            "~/Scripts/TemplateScript/dataTables.scroller.min.js",
+                            "~/Scripts/TemplateScript/jszip.min.js",
+                            "~/Scripts/TemplateScript/pdfmake.min.js",
+                            "~/Scripts/TemplateScript/vfs_fonts.js"
+                     ));
+
 
         }
     }
