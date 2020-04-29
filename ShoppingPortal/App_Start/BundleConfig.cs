@@ -35,8 +35,12 @@ namespace ShoppingPortal
                       "~/Content/TemplateCSS/bootstrap-progressbar-3.3.4.min.css",
                       "~/Content/TemplateCSS/daterangepicker.css",
                        "~/Content/TemplateCSS/sweetalert.min.css",
+                      "~/Content/TemplateCSS/switchery.min.css",
                       "~/Content/TemplateCSS/custom.css",
-                      "~/Content/TemplateCSS/common.css"));
+                      "~/Content/TemplateCSS/common.css"
+                      //"~/Content/TemplateCSS/green.css",
+                      //"~/Content/TemplateCSS/_reboot.scss"
+                      ));
 
             bundles.Add(new StyleBundle("~/Content/DatatableCSS").Include(
                    
@@ -54,8 +58,10 @@ namespace ShoppingPortal
                         "~/Scripts/TemplateScript/fastclick.js",
                         "~/Scripts/TemplateScript/nprogress.js",
                          "~/Scripts/TemplateScript/sweetalert.min.js",
+                         "~/Scripts/TemplateScript/switchery.min.js",
                          "~/Scripts/TemplateScript/custom.js",
-                            "~/Scripts/TemplateScript/common.js"
+                         "~/Scripts/TemplateScript/common.js"                      
+                        //"~/Common/JS/CommonAjaxCall.js"
                         //"~/Scripts/TemplateScript/Chart.min.js",
                         //"~/Scripts/TemplateScript/jquery.sparkline.min.js",
                         //"~/Scripts/TemplateScript/morris.min.js",

@@ -2,6 +2,7 @@
 using AutoMapper;
 using Data;
 using Domain;
+using Domain.Models;
 using ShoppingPortal.App_Start;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace ShoppingPortal.App_Start
         public MappingProfile()
         {
             CreateMap<UserDetail, UserModel>();
+            CreateMap<Category, CategoryModel>();
         }
     }
 }

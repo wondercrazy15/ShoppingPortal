@@ -189,6 +189,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -216,10 +217,12 @@
     <Content Include="Content\TemplateCSS\daterangepicker.css" />
     <Content Include="Content\TemplateCSS\fixedHeader.bootstrap.min.css" />
     <Content Include="Content\TemplateCSS\font-awesome.css" />
+    <Content Include="Content\TemplateCSS\green.css" />
     <Content Include="Content\TemplateCSS\nprogress.css" />
     <Content Include="Content\TemplateCSS\responsive.bootstrap.min.css" />
     <Content Include="Content\TemplateCSS\scroller.bootstrap.min.css" />
     <Content Include="Content\TemplateCSS\sweetalert.min.css" />
+    <Content Include="Content\TemplateCSS\switchery.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -227,15 +230,18 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\american-express.png" />
     <Content Include="Images\cropper.jpg" />
+    <Content Include="Images\down_arrow.png" />
     <Content Include="Images\favicon.ico" />
     <Content Include="Images\img.jpg" />
     <Content Include="Images\inbox.png" />
+    <Content Include="Images\left_arrow.png" />
     <Content Include="Images\mastercard.png" />
     <Content Include="Images\media.jpg" />
     <Content Include="Images\prod-2.jpg" />
     <Content Include="Images\prod-3.jpg" />
     <Content Include="Images\prod-4.jpg" />
     <Content Include="Images\prod-5.jpg" />
+    <Content Include="Images\right_arrow.png" />
     <Content Include="Images\user.png" />
     <Content Include="Images\visa.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -244,6 +250,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\TemplateCSS\_reboot.scss" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -256,6 +263,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\PageScript\CategoryIndex.js" />
     <Content Include="Scripts\TemplateScript\bootstrap-progressbar.min.js" />
     <Content Include="Scripts\TemplateScript\bootstrap.bundle.js" />
     <Content Include="Scripts\TemplateScript\bootstrap.bundle.min.js" />
@@ -290,6 +298,7 @@
     <Content Include="Scripts\TemplateScript\responsive.bootstrap.js" />
     <Content Include="Scripts\TemplateScript\skycons.js" />
     <Content Include="Scripts\TemplateScript\sweetalert.min.js" />
+    <Content Include="Scripts\TemplateScript\switchery.min.js" />
     <Content Include="Scripts\TemplateScript\vfs_fonts.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -329,9 +338,11 @@
     <Content Include="Views\Shared\_CommonLayout.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />

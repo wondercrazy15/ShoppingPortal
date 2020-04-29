@@ -86,16 +86,7 @@
                 dataType: "json",
                 success: function (response) {
                    
-                    //$.ajax({
-                    //    method: 'GET',
-                    //    url: '/User/RefreshDiv2',
-                    //    // data: { }, // Pass value that you want to controller.
-                    //    dataType: "json",
-                    //    success: function (data) {
-                    //        debugger
-                    //        // $("#ib2").val(data); //Implement partial refreshing.
-                    //    }
-                    //});
+                   
                    
                     swal("Poof! Your profile has been deleted!", {
                         icon: "success"
@@ -111,5 +102,30 @@
             });
         });
     }
+    //const { value: fruit } = await Swal.fire({
+    //    title: 'Select field validation',
+    //    input: 'select',
+    //    inputOptions: {
+    //        apples: 'Apples',
+    //        bananas: 'Bananas',
+    //        grapes: 'Grapes',
+    //        oranges: 'Oranges'
+    //    },
+    //    inputPlaceholder: 'Select a fruit',
+    //    showCancelButton: true,
+    //    inputValidator: (value) => {
+    //        return new Promise((resolve) => {
+    //            if (value === 'oranges') {
+    //                resolve()
+    //            } else {
+    //                resolve('You need to select oranges :)')
+    //            }
+    //        })
+    //    }
+    //})
+
+    //if (fruit) {
+    //    Swal.fire(`You selected: ${fruit}`)
+    //}
 </script>
 

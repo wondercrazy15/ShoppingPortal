@@ -4,7 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="97816e88dd684e4d91bfe9492eb5c3bb" Name="Diagram1" ZoomLevel="99">
+      <Diagram DiagramId="9a093f1d1bd44be7b73c7008cce69627" Name="Diagram1">
+        <EntityTypeShape EntityType="ShoppingPortalModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShoppingPortalModel.AspNetRole" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShoppingPortalModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ShoppingPortalModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
@@ -14,6 +15,8 @@
         <AssociationConnector Association="ShoppingPortalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="ShoppingPortalModel.FK_UserDetails_AspNetUsers" ManuallyRouted="false" />
         <AssociationConnector Association="ShoppingPortalModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ShoppingPortalModel.Category" Width="1.5" PointX="7.375" PointY="0.75" />
+        <AssociationConnector Association="ShoppingPortalModel.FK_Categories_Categories" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

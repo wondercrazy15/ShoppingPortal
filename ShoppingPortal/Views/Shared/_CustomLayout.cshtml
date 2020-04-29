@@ -7,7 +7,19 @@
     <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     @Scripts.Render("~/Content/DatatableCSS")
     @Styles.Render("~/Content/TemplateCSS")
+    <script type="text/javascript">
+        //Common ajax failure and error default function
+        var mainFailureFunc = function (error) {
 
+        }
+        var mainErrorFunc = function (error) {
+
+        }
+    </script>
+    <script src="~/Scripts/TemplateScript/jquery.min.js"></script>
+    @*@Scripts.Render("~/bundles/Templatejquery")
+    @Scripts.Render("~/bundles/Datatable")
+    @RenderSection("scripts", required: false)*@
 </head>
 
 <body class="nav-md">
@@ -60,6 +72,15 @@
 
                                     </ul>
                                 </li>
+                                <li>
+                                    <a>
+                                        <i class="fa fa-sitemap"></i>Master
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li>@Html.ActionLink("Categories", "Index", "Categories")</li>                                                                           
+                                    </ul>
+                                </li>
 
                             </ul>
                         </div>
@@ -102,7 +123,7 @@
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/img.jpg" alt="">@User.Identity.Name.Split(new string[] { "@" }, StringSplitOptions.None)[0]
+                                    <img src="~/Images/img.jpg" alt="">@User.Identity.Name.Split(new string[] { "@" }, StringSplitOptions.None)[0]
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"> Profile</a>
@@ -148,7 +169,7 @@
         <!-- /footer content -->
     </div>
 
-    <script src="~/Scripts/TemplateScript/jquery.min.js"></script>
+    @*<script src="~/Scripts/TemplateScript/jquery.min.js"></script>*@
     @Scripts.Render("~/bundles/Templatejquery")
     @Scripts.Render("~/bundles/Datatable")
     @RenderSection("scripts", required: false)

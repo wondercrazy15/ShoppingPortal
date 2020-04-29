@@ -41,6 +41,7 @@ namespace ShoppingPortal
             //container.RegisterType<IMapper,Mapper>();
 
             container.RegisterType<IUserRepository, UserService>();
+            container.RegisterType<ICategoriesRepository, CategoriesService>();
 
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));

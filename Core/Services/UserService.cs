@@ -22,7 +22,7 @@ namespace Core.Services
             {
                 userDetails = _context.UserDetails.ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
             }

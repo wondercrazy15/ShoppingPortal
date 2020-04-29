@@ -1,0 +1,17 @@
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\bin\Debug\Core.dll.config
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\bin\Debug\Core.dll
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\bin\Debug\Core.pdb
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\bin\Debug\Data.dll
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\bin\Debug\Domain.dll
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\bin\Debug\EntityFramework.dll
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\bin\Debug\Data.pdb
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\bin\Debug\Data.dll.config
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\bin\Debug\Domain.pdb
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\bin\Debug\EntityFramework.xml
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\obj\Debug\Core.csprojAssemblyReference.cache
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\obj\Debug\Core.csproj.CopyComplete
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\obj\Debug\Core.dll
+D:\Projects\ShoppingPortal\Source\ShoppingPortal\Core\obj\Debug\Core.pdb
