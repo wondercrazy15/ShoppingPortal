@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security.DataProtection;
+using ShoppingPortal.Common;
 using ShoppingPortal.Models;
 using ShoppingPortal.Utility;
 using System;
@@ -25,6 +26,7 @@ namespace ShoppingPortal.Controllers
     {
         private readonly IUserRepository _repo;
         private ApplicationUserManager _userManager;
+        ShoppingUtility shoppingUtility = new ShoppingUtility();
 
         public UserController(IUserRepository repo, ApplicationUserManager userManager)
         {
@@ -105,7 +107,7 @@ namespace ShoppingPortal.Controllers
                     bool includeSpaces = false;
                     int lengthOfPassword = 12;
 
-                    password = PasswordGenerator.PasswordGenerator.GeneratePassword(includeLowercase, includeUppercase, includeNumeric, includeSpecial, includeSpaces, lengthOfPassword);
+                    password = shoppingUtility.GeneratePassword(includeLowercase, includeUppercase, includeNumeric, includeSpecial, includeSpaces, lengthOfPassword);
 
                     if (model != null)
                     {
@@ -165,12 +167,12 @@ namespace ShoppingPortal.Controllers
                 //Check file type 
                 if (importFile.FileName.EndsWith(".xls") || importFile.FileName.EndsWith(".xlsx"))
                 {
-                    dt = GetDataFromExcelFile(importFile.InputStream);
+                    dt = shoppingUtility.GetDataFromExcelFile(importFile.InputStream);
                 }
 
                 else if (importFile.FileName.EndsWith(".csv"))
                 {
-                    dt = GetDataFromCSVFile(importFile.InputStream);
+                    dt = shoppingUtility.GetDataFromCSVFile(importFile.InputStream);
                 }
                 else
                 {
@@ -184,7 +186,8 @@ namespace ShoppingPortal.Controllers
                         if (objDataRow.ItemArray.All(x => string.IsNullOrEmpty(x?.ToString()))) continue;
 
                         string Email = objDataRow["Email"].ToString();
-                        string password = PasswordGenerator.PasswordGenerator.GeneratePassword(includeLowercase, includeUppercase, includeNumeric, includeSpecial, includeSpaces, lengthOfPassword);
+
+                        string password = shoppingUtility.GeneratePassword(includeLowercase, includeUppercase, includeNumeric, includeSpecial, includeSpaces, lengthOfPassword);
 
                         var user = new ApplicationUser { UserName = Email, Email = Email };
                         var result = _userManager.Create(user, password);
@@ -253,69 +256,6 @@ namespace ShoppingPortal.Controllers
             return PartialView("UserInfo", userDetails);
         }
 
-        private DataTable GetDataFromCSVFile(Stream stream)
-        {
-            var userList = new List<UserModel>();
-            DataTable dt = new DataTable();
-            try
-            {
-                using (var reader = ExcelReaderFactory.CreateCsvReader(stream))
-                {
-                    var dataSet = reader.AsDataSet(new ExcelDataSetConfiguration
-                    {
-                        ConfigureDataTable = _ => new ExcelDataTableConfiguration
-                        {
-                            UseHeaderRow = true // To set First Row As Column Names  
-                        }
-                    });
-
-                    if (dataSet.Tables.Count > 0)
-                    {
-                        dt = dataSet.Tables[0];
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-
-            return dt;
-        }
-        private DataTable GetDataFromExcelFile(Stream stream)
-        {
-            var userList = new List<UserModel>();
-
-            using (XLWorkbook workBook = new XLWorkbook(stream))
-            {
-                IXLWorksheet workSheet = workBook.Worksheet(1);
-
-                DataTable dt = new DataTable();
-
-                bool firstRow = true;
-                foreach (IXLRow row in workSheet.Rows())
-                {
-                    if (firstRow)
-                    {
-                        foreach (IXLCell cell in row.Cells())
-                        {
-                            dt.Columns.Add(cell.Value.ToString());
-                        }
-                        firstRow = false;
-                    }
-                    else
-                    {
-                        dt.Rows.Add();
-                        int i = 0;
-                        foreach (IXLCell cell in row.Cells())
-                        {
-                            dt.Rows[dt.Rows.Count - 1][i] = cell.Value.ToString();
-                            i++;
-                        }
-                    }
-                }
-                return dt;
-            }
-        }
+        
     }
 }

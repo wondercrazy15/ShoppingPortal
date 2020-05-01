@@ -81,28 +81,40 @@ function updateModalContent(modalId, headerTitile, buttonText, onclickEvent) {
 //File import method
 
 $(document).on("click", "#btnUpload", function () {
-    var url = $("#fileImportUrl").val();
     var files = $("#importFile").get(0).files;
-    var formData = new FormData();
-    formData.append('importFile', files[0]);
-    $.ajax({
-        url: url,
-        data: formData,
-        type: 'POST',
-        contentType: false,
-        processData: false,
-        success: function (data) {
-            if (data.Status === 1) {
-                $("#fileImportUrl").val("");
-                loadUserData();
-                alert(data.Message);
-            } else {
-                alert("Failed to Import");
+
+    if (files.length === 0) {
+        $(".err-file-import").show();
+        return false;
+    }
+    else {
+        $(".err-file-import").hide();
+        var url = $("#fileImportUrl").val();
+        // var files = $("#importFile").get(0).files;
+        var formData = new FormData();
+        formData.append('importFile', files[0]);
+        $.ajax({
+            url: url,
+            data: formData,
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if (data.Status === 1) {
+                    $("#fileImportUrl").val("");
+                    loadUserData();
+                    alert(data.Message);
+                } else {
+                    alert("Failed to Import");
+                }
             }
-        }
-    });
+        });
+    }
 });
 
+$(document).on("change", "#importFile", function () {
+    $(".err-file-import").hide();
+});
 // Common AJAX call methods...
 
 function Get(type, url, successFunc, failureFunc, errorFunc) {

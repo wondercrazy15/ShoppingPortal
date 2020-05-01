@@ -28,6 +28,12 @@
         </div>
         <div class="item form-group">
             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Middle Name</label>
+            <div class="col-md-6 col-sm-6 ">
+                @Html.TextBoxFor(x => x.MiddleName, new { @class = "form-control" })
+                <div class="text-left mb-10">
+                    @Html.ValidationMessageFor(m => m.MiddleName, "", new { @class = "text-danger" })
+                </div>
+            </div>
         </div>
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align">
