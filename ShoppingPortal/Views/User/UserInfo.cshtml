@@ -1,0 +1,111 @@
+﻿@model Domain.UserDetails
+
+<div class="x_panel">
+    <div class="x_content">
+        <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="purchase-history-tab" data-toggle="tab" href="#purchaseHistory" role="tab" aria-controls="purchaseHistory" aria-selected="false">Purchase History</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+
+            <div class="tab-pane fade fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td class="align-middle">
+                                    <span>First Name</span>
+                                </td>
+                                <td class="align-middle">
+                                    <span>@Model.userDetail.FirstName</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">
+                                    <span>Middle Name</span>
+                                </td>
+                                <td class="align-middle">
+                                    <span>@Model.userDetail.MiddleName</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Last Name</span>
+                                </td>
+                                <td class="align-middle">
+                                    <span>@Model.userDetail.LastName</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Phone Number</span>
+                                </td>
+                                <td class="align-middle">
+                                    <span>@Model.userDetail.PhoneNumber</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Email</span>
+                                </td>
+                                <td class="align-middle">
+                                    <span>@Model.userDetail.Email</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>User Role</span>
+                                </td>
+                                <td class="align-middle">
+                                    <span>@Model.userDetail.UserRole</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            <div class="tab-pane fade" id="purchaseHistory" role="tabpanel" aria-labelledby="purchase-history-tab">
+                <div class="x_content">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>DeliveryDate</th>
+                                <th>ReciverBY</th>
+                                @*<th>Payment Type</th>
+                                <td>ContactNumber</td>*@
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>

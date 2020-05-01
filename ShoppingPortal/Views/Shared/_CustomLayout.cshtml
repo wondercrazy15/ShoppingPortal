@@ -55,7 +55,6 @@
                                     <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li>
-
                                             @Html.ActionLink("Dashboard", "Dashboard", "Home")
                                         </li>
                                     </ul>
@@ -69,7 +68,6 @@
                                         <li>@Html.ActionLink("Customer", "Index", "User")</li>
                                         <li>
                                         <li>@Html.ActionLink("User", "Index", "User")</li>
-
                                     </ul>
                                 </li>
                                 <li>
@@ -78,14 +76,12 @@
                                         <span class="fa fa-chevron-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
-                                        <li>@Html.ActionLink("Categories", "Index", "Categories")</li>                                                                           
+                                        <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
                                     </ul>
                                 </li>
 
                             </ul>
                         </div>
-
-
                     </div>
                     <!-- /sidebar menu -->
                     <!-- /menu footer buttons -->
@@ -170,8 +166,14 @@
     </div>
 
     @*<script src="~/Scripts/TemplateScript/jquery.min.js"></script>*@
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/Templatejquery")
     @Scripts.Render("~/bundles/Datatable")
     @RenderSection("scripts", required: false)
+
+    @{Html.RenderPartial("_RegistrationModel");}
+    @{Html.RenderPartial("_FileUpload");}
+    @{Html.RenderPartial("ViewUserInfo");}
+
 </body>
 </html>

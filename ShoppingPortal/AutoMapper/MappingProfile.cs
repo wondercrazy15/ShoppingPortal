@@ -17,6 +17,7 @@ namespace ShoppingPortal.App_Start
         {
             CreateMap<UserDetail, UserModel>();
             CreateMap<Category, CategoryModel>();
+            CreateMap<UserModel, UserDetail>();
         }
     }
 }

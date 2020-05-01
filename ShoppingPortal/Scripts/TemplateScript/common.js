@@ -10,7 +10,7 @@
             type: type,
             url: url,
             contentType: "application/json; charset=utf-8",
-            data: (data != null?JSON.stringify(data):null) ,
+            data: (data != null ? JSON.stringify(data) : null),
             dataType: "json",
             success: successFunc,
             failure: failureFunc,
@@ -46,8 +46,8 @@ function delete_confirmation(title, text, type, Callback) {
 function clearFormControll(formId) {
     var form = $("#" + formId);
     var allFormInput = $(form).find(".data-input");
-    $.each(allFormInput, function (val,input) {
-        $(input).val("");             
+    $.each(allFormInput, function (val, input) {
+        $(input).val("");
     });
 }
 function formValidation(formId) {
@@ -57,10 +57,10 @@ function formValidation(formId) {
     $.each(allFormInput, function (val, input) {
         if ($(input).val().trim() == "" && $(input).hasClass("required")) {
             formValidate = false;
-            if ($(input).next().hasClass("error-span")==false) { 
+            if ($(input).next().hasClass("error-span") == false) {
                 $(input).after("<span class='text-danger error-span'>Field must be Required.</span>")
             }
-           // dynamicKeupEvent(input)
+            // dynamicKeupEvent(input)
         }
     });
     return formValidate;
@@ -68,7 +68,7 @@ function formValidation(formId) {
 
 
 function updateModalContent(modalId, headerTitile, buttonText, onclickEvent) {
-    
+
     var modal = $(modalId);
     modal.find("#modalHeaderTitle").text(headerTitile);
     modal.find("#modalSubmitButton").text(buttonText);
@@ -76,4 +76,70 @@ function updateModalContent(modalId, headerTitile, buttonText, onclickEvent) {
     modal.find("#modalSubmitButton").attr("onclick", onclickEvent)
     $(".error-span").remove();
 }
+
+
+//File import method
+
+$(document).on("click", "#btnUpload", function () {
+    var url = $("#fileImportUrl").val();
+    var files = $("#importFile").get(0).files;
+    var formData = new FormData();
+    formData.append('importFile', files[0]);
+    $.ajax({
+        url: url,
+        data: formData,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            if (data.Status === 1) {
+                $("#fileImportUrl").val("");
+                loadUserData();
+                alert(data.Message);
+            } else {
+                alert("Failed to Import");
+            }
+        }
+    });
+});
+
+// Common AJAX call methods...
+
+function Get(type, url, successFunc, failureFunc, errorFunc) {
+    $.ajax({
+        type: type,
+        url: url,
+        dataType: "json",
+        success: function (response) {
+            successFunc(response);
+        },
+        failure: function (response) {
+            failureFunc(response);
+        },
+        error: function (response) {
+            errorFunc(response);
+        }
+    });
+}
+
+
+function POST(type, url, data, dataType, successFunc, failureFunc, errorFunc) {
+    $.ajax({
+        type: type,
+        url: url,
+        data: data,
+        dataType: dataType,
+        success: function (response) {
+            successFunc(response);
+        },
+        failure: function (response) {
+            failureFunc(response);
+        },
+        error: function (response) {
+            errorFunc(response);
+        }
+    });
+}
+
+//
 

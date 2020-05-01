@@ -1,0 +1,86 @@
+﻿@model Domain.UserModel
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @id = "ModalForm" }))
+{
+    <div class="modal-body">
+        @Html.HiddenFor(m => m.userId)
+        <div class="item form-group">
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">
+                First Name <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 ">
+                @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+                <div class="text-left mb-10">
+                    @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="item form-group">
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">
+                Last Name <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 ">
+                @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+                <div class="text-left mb-10">
+                    @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="item form-group">
+            <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Middle Name</label>
+        </div>
+        <div class="item form-group">
+            <label class="col-form-label col-md-3 col-sm-3 label-align">
+                Email <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 ">
+                @if (Model.userId != null)
+                {
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @disabled = "true" })
+                }
+                else
+                {
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                }
+                <div class="text-left mb-10">
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="item form-group">
+            <label class="col-form-label col-md-3 col-sm-3 label-align">
+                Phone Number <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 ">
+                @if (Model.userId != null)
+                {
+                    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", @disabled = "true" })
+                }
+                else
+                {
+                    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+                }
+                <div class="text-left mb-10">
+                    @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="item form-group">
+            <label class="col-form-label col-md-3 col-sm-3 label-align">
+                IsActive
+            </label>
+            <div class="col-md-6 col-sm-6 ">
+                @Html.CheckBoxFor(x => x.IsActive, new { @checked = "checked" })
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" onclick="addOrUpdateUser()">Save changes</button>
+    </div>
+}
+
+
+
+
